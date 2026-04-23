@@ -1,4 +1,4 @@
-require("dotenv").config(); // ✅ ADDED
+require("dotenv").config();
 
 const express = require("express");
 const crypto = require("crypto");
@@ -10,12 +10,24 @@ const mongoose = require("mongoose");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// ✅ CHANGE HERE
-app.use(cors({ origin: "*" }));
 
+// ✅ FIXED CORS (WORKING VERSION)
+app.use(cors({
+  origin: "*",   // allow all (for testing)
+  methods: ["GET", "POST", "PUT", "DELETE"],
+}));
+
+// ✅ IMPORTANT (for browser preflight)
+app.options("*", cors());
+
+
+// ✅ MIDDLEWARE
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.urlencoded({ extended: true }));
 
+
+// ✅ STATIC FILES
+app.use(express.static(path.join(__dirname, "public")));
 /* ===============================
    ✅ MONGODB CONNECTION (UPDATED)
 ================================= */
