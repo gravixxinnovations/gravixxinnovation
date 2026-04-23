@@ -1,0 +1,16 @@
+{
+  "name": "@workspace/gifting-store-html",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^4.22.1",
+    "mongoose": "^9.5.0",
+    "razorpay": "^2.9.6"
+  }
+}
