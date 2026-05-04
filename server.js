@@ -41,7 +41,10 @@ mongoose.connect(process.env.MONGO_URI) // ✅ CHANGED
 const OrderSchema = new mongoose.Schema({
   name: String,
   phone: String,
-  address: String,
+  city: String,
+  area: String,
+  pincode: String, // 👈 store separately
+  address: String, // 👈 combined address
   order_id: String,
   payment_id: String,
   cart: Array,
